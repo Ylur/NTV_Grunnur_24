@@ -105,7 +105,7 @@
     },
     {
       "name": "lints",
-      "rootUri": "file:///Users/ingih/.pub-cache/hosted/pub.dev/lints-2.1.1",
+      "rootUri": "file:///Users/ingih/.pub-cache/hosted/pub.dev/lints-3.0.0",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -296,7 +296,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-03-09T13:09:48.194021Z",
+  "generated": "2024-03-11T17:40:17.793393Z",
   "generator": "pub",
   "generatorVersion": "3.3.0"
 }
