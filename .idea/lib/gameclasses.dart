@@ -10,14 +10,29 @@ class footballPlayer {
   String lastName;
   position playerpos;
   int squadNumber;
+  int goalsScored;
+
 
   footballPlayer({
+
     required this.id,
     required this.firstName,
     required this.lastName,
     required this.playerpos,
-    required this.squadNumber
+    required this.squadNumber,
+    this.goalsScored = 0
   });
+
+  
+  String getname() {
+    return "${firstName.substring(0, 1)}. ${lastName}";
+  }
+
+  void showplayerStats() {
+  print(this.goalsScored);
+  print("________________");
+
+  }
 }
 
 class position {
@@ -55,7 +70,6 @@ class footballTeam {
     });
   }
 }
-
 
 
 class footballGame {
@@ -108,7 +122,10 @@ class footballGame {
     int randomNumb1 = random.nextInt(tempPlayers[numb].playerpos.scoreOdds);
     int randomNumb2 = random.nextInt(tempPlayers[numb].playerpos.scoreOdds);
     if(randomNumb1 == randomNumb2) {
-      print("Goal for player ${tempPlayers[numb].lastName}");
+      print("Goal for player ${tempPlayers[numb].getname()}");
+      results = true;
+    } else {
+    print("HUGE chance missed by ${tempPlayers[numb].getname()}");
     }
     return results = true;
   }
