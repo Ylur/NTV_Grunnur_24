@@ -1,7 +1,7 @@
 import "package:untitled/gameclasses.dart";
 
 void main() {
-  position GK = new position(id: 1, name: "Goalkeeper", scoreOdds: 10);
+  position GK = new position(id: 1, name: "Goalkeeper", scoreOdds: 9);
   position DC = new position(id: 2, name: "Defender", scoreOdds: 7);
   position MC = new position(id: 3, name: "Midfielder", scoreOdds: 4);
   position ST = new position(id: 4, name: "Striker", scoreOdds: 2);
