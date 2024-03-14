@@ -62,8 +62,9 @@ void main() {
 
 // Sækja hérna litina sem eru í boði fyrir bílinn sem er valinn
           if (colorChoice?.toLowerCase() == "yes") {
-            print("Colors available (ID: ${car.id} ${carColors} ");
-
+            print("Enter the number of the color you want:");
+            String? orderInput = stdin.readLineSync();
+            int? choice = int.tryParse(orderInput ?? '');
           }
         }
         continueSearch = false;
