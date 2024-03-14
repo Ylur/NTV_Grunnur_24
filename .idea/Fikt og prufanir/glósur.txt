@@ -1,0 +1,21 @@
+if (colorChoice?.toLowerCase() == "yes") {
+      print("Please enter the ID of the car you are interested in:");
+      String? carIdInput = stdin.readLineSync();
+      int? carId = int.tryParse(carIdInput ?? '');
+      if (carId != null && carColorsMap.containsKey(carId)) {
+        showCarColors(carId);
+        print("Enter the number of the color you want:");
+        String? colorIndexInput = stdin.readLineSync();
+        int? colorIndex = int.tryParse(colorIndexInput ?? '');
+        List<String>? colors = carColorsMap[carId];
+        if (colorIndex != null && colors != null && colorIndex > 0 && colorIndex <= colors.length) {
+          print("You have chosen the color: ${colors[colorIndex - 1]}");
+        } else {
+          print("Invalid color selection.");
+        }
+      } else {
+        print("Invalid car ID.");
+      }
+    }
+  }
+}

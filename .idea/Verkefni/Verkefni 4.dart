@@ -27,7 +27,8 @@ void main() {
 
   ];
 
-  var dealership = CarDealership(id: 1, name: "Hjalti´s Auto World", cars: cars);
+  var dealership = CarDealership(
+      id: 1, name: "Hjalti´s Auto World", cars: cars);
 
   dealership.showInventory();
 
@@ -54,29 +55,48 @@ void main() {
 
         if (colorChoice?.toLowerCase() == "yes") {
           for (Car car in foundCars) {
-            print("Colors available for ${car.make} ${car.model} (ID: ${car.id}):");
+            print("Colors available for ${car.make} ${car.model} (ID: ${car
+                .id}):");
             showCarColors(car.id);
           }
           print("Would you like to choose a color?(yes/no)");
           String? colorChoice = stdin.readLineSync();
 
 // Sækja hérna litina sem eru í boði fyrir bílinn sem er valinn
+          // prufa quota map int og fá id á lit þannig
+
           if (colorChoice?.toLowerCase() == "yes") {
-            print("Enter the number of the color you want:");
-            String? orderInput = stdin.readLineSync();
-            int? choice = int.tryParse(orderInput ?? '');
+            print("Please enter the number of the color you want the car in:");
+            String? carColorInput = stdin.readLineSync();
+            int? carColor = int.tryParse(carColorInput ?? '');
+
+            if (carColor != null && carColors.containsKey(carColor)) {
+              showCarColors(carColor);
+              print("Enter the number of the color you want:");
+
+              String? colorIndexInput = stdin.readLineSync();
+              int? colorIndex = int.tryParse(colorIndexInput ?? '');
+              List<String>? colors = carColors[carColor];
+
+              if (colorIndex != null && colors != null && colorIndex > 0 &&
+                  colorIndex <= colors.length) {
+                print("You have chosen the color: ${colors[colorIndex - 1]}");
+              } else {
+                print("Sorry that color is not available.");
+              }
+              continueSearch = false;
+            } else {
+              print("Sorry, we couldn't find any cars matching your search.");
+            }
+          }
+
+          if (continueSearch) {
+            print("Do you want to try again? (yes/no)");
+            String? answer = stdin.readLineSync();
+            continueSearch = answer?.toLowerCase() == 'yes';
           }
         }
-        continueSearch = false;
-      } else {
-        print("Sorry, we couldn't find any cars matching your search.");
       }
-    }
-
-    if (continueSearch) {
-      print("Do you want to try again? (yes/no)");
-      String? answer = stdin.readLineSync();
-      continueSearch = answer?.toLowerCase() == 'yes';
     }
   }
 }

@@ -71,7 +71,9 @@ Map<int, List<String>> carColors = {
 void showCarColors(int carId) {
   List<String>? colors = carColors[carId];
   if (colors != null) {
-    print("Available colors for car ID $carId: ${colors.join(", ")}");
+    for (int i = 0; i < colors.length; i++) {
+      print("${i + 1}. ${colors[i]}");
+    }
   } else {
     print("No colors found for car ID $carId.");
   }
