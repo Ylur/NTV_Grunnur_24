@@ -41,7 +41,7 @@ class CarDealership {
   }
 }
 
-// Litirnir á bílum, sótt af gbt þannig lítil ábyrgð tekin
+// Litirnir á bílum, sótt af gbt þannig lítil ábyrgð tekin á nöfnum
 Map<int, List<String>> carColors = {
 
   1: ["Chromium", "Icicle", "Ruby Flare Pearl"],

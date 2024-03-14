@@ -62,7 +62,7 @@ void main() {
 
 // Sækja hérna litina sem eru í boði fyrir bílinn sem er valinn
           if (colorChoice?.toLowerCase() == "yes") {
-            print("Colors available  ${carColors} ");
+            print("Colors available (ID: ${car.id} ${carColors} ");
 
           }
         }
