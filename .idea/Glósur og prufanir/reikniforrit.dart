@@ -1,6 +1,7 @@
 Skeleton Code:
 
-double add(double a, double b) {
+double add(3921, 3432) {
+print("${add()}")  
 
   // TODO: implement addition logic
 
