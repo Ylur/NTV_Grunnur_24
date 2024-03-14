@@ -32,9 +32,9 @@ void main() {
 
   dealership.showInventory();
 
-  bool continueSearch = true;
+  bool Search = true;
 
-  while (continueSearch) {
+  while (Search) {
     print("\nEnter the make and model of the car you're looking for:");
     print("Make:");
     String? make = stdin.readLineSync();
@@ -50,17 +50,10 @@ void main() {
           print("${car.toString()} with ID: ${car.id}");
         }
 
-        print("Would you like to see the color options for these cars? (yes/no)");
+        print("Would you like to see the color options for the car? (yes/no)");
         String? colorChoice = stdin.readLineSync();
 
-        if (colorChoice?.toLowerCase() == "yes") {
-          for (Car car in foundCars) {
-            print("Colors available for ${car.make} ${car.model} (ID: ${car
-                .id}):");
-            showCarColors(car.id);
-          }
-          print("Would you like to choose a color?(yes/no)");
-          String? colorChoice = stdin.readLineSync();
+
 
 // Sækja hérna litina sem eru í boði fyrir bílinn sem er valinn
           // prufa quota map int og fá id á lit þannig
@@ -84,19 +77,19 @@ void main() {
               } else {
                 print("Sorry that color is not available.");
               }
-              continueSearch = false;
+              Search = false;
             } else {
               print("Sorry, we couldn't find any cars matching your search.");
             }
           }
 
-          if (continueSearch) {
+          if (Search) {
             print("Do you want to try again? (yes/no)");
             String? answer = stdin.readLineSync();
-            continueSearch = answer?.toLowerCase() == 'yes';
+            Search = answer?.toLowerCase() == 'yes';
           }
         }
       }
     }
   }
-}
+
