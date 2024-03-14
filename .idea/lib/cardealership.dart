@@ -5,7 +5,11 @@ class Car {
   String make;
   String model;
 
-  Car({required this.id, required this.make, required this.model});
+  Car({
+    required this.id,
+    required this.make,
+    required this.model
+  });
 
   @override
   String toString() {
@@ -18,7 +22,11 @@ class CarDealership {
   String name;
   List<Car> cars;
 
-  CarDealership({required this.id, required this.name, required this.cars});
+  CarDealership({
+    required this.id,
+    required this.name,
+    required this.cars
+  });
 
   void showInventory() {
     print("Welcome to $name! Here is our current inventory:");
@@ -33,8 +41,9 @@ class CarDealership {
   }
 }
 
-// Litirnir á bílum
+// Litirnir á bílum, sótt af gbt þannig lítil ábyrgð tekin
 Map<int, List<String>> carColors = {
+
   1: ["Chromium", "Icicle", "Ruby Flare Pearl"],
   2: ["Absolute Zero", "Renaissance Red 2.0", "Nitro Yellow"],
   3: ["Army Green", "Midnight Black Metallic", "Magnetic Gray Metallic"],
@@ -55,6 +64,7 @@ Map<int, List<String>> carColors = {
   18: ["Santorini Black", "Fuji White", "Caldera Red"],
   19: ["Portofino Blue", "Eiger Grey", "Firenze Red"],
   20: ["Carpathian Grey", "Yulong White", "Narvik Black"],
+
 };
 
 

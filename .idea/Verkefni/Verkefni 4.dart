@@ -57,6 +57,14 @@ void main() {
             print("Colors available for ${car.make} ${car.model} (ID: ${car.id}):");
             showCarColors(car.id);
           }
+          print("Would you like to choose a color?(yes/no)");
+          String? colorChoice = stdin.readLineSync();
+
+// Sækja hérna litina sem eru í boði fyrir bílinn sem er valinn
+          if (colorChoice?.toLowerCase() == "yes") {
+            print("Colors available  ${carColors} ");
+
+          }
         }
         continueSearch = false;
       } else {
