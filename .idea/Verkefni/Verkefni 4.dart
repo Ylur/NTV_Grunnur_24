@@ -28,7 +28,7 @@ void main() {
   ];
 
   var dealership = CarDealership(
-      id: 1, name: "Hjalti´s Auto World", cars: cars);
+      id: 1, name: "Dart´s Auto World", cars: cars);
 
   dealership.showInventory();
 
@@ -49,42 +49,31 @@ void main() {
         for (Car car in foundCars) {
           print("${car.toString()} with ID: ${car.id}");
         }
-
         print("Would you like to see the color options for the car? (yes/no)");
         String? colorChoice = stdin.readLineSync();
+        if (colorChoice?.toLowerCase() == "yes") {
+          Car selectedCar = foundCars.first;
+          showCarColors(selectedCar.id);
 
+          print("Enter the number of the color you want:");
+          String? colorIndexInput = stdin.readLineSync();
+          int? colorIndex = int.tryParse(colorIndexInput ?? '');
+
+          List<String>? colors = carColors[selectedCar.id];
+          if (colorIndex != null && colors != null && colorIndex > 0 && colorIndex <= colors.length) {
+            print("You have chosen the color: ${colors[colorIndex - 1]}");
+          } else {
+            print("Invalid color selection.");
+          }
 
 
 // Sækja hérna litina sem eru í boði fyrir bílinn sem er valinn
           // prufa quota map int og fá id á lit þannig
 
-          if (colorChoice?.toLowerCase() == "yes") {
-            print("Please enter the number of the color you want the car in:");
-            String? carColorInput = stdin.readLineSync();
-            int? carColor = int.tryParse(carColorInput ?? '');
-
-            if (carColor != null && carColors.containsKey(carColor)) {
-              showCarColors(carColor);
-              print("Enter the number of the color you want:");
-
-              String? colorIndexInput = stdin.readLineSync();
-              int? colorIndex = int.tryParse(colorIndexInput ?? '');
-              List<String>? colors = carColors[carColor];
-
-              if (colorIndex != null && colors != null && colorIndex > 0 &&
-                  colorIndex <= colors.length) {
-                print("You have chosen the color: ${colors[colorIndex - 1]}");
-              } else {
-                print("Sorry that color is not available.");
-              }
-              Search = false;
-            } else {
-              print("Sorry, we couldn't find any cars matching your search.");
-            }
           }
 
           if (Search) {
-            print("Do you want to try again? (yes/no)");
+            print("Do you want to choose another car ? (yes/no)");
             String? answer = stdin.readLineSync();
             Search = answer?.toLowerCase() == 'yes';
           }
